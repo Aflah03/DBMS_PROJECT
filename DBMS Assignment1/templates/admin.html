@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Admin Panel - Manage Bookings</h1>
+
+    <h2>Pending Bookings</h2>
+    <table border="1">
+        <tr>
+            <th>Booking ID</th>
+            <th>User Name</th>
+            <th>Bike Model</th>
+            <th>Action</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking[0] }}</td>
+            <td>{{ booking[1] }}</td>
+            <td>{{ booking[2] }}</td>
+            <td>
+                <a href="/approve/{{ booking[0] }}">Approve</a> |
+                <a href="/remove_booking/{{ booking[0] }}" style="color: red;">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add New Bike</h2>
+    <form method="POST">
+        <label>Model:</label>
+        <input type="text" name="model" required><br>
+        <label>Price:</label>
+        <input type="text" name="price" required><br>
+        <label>Description:</label>
+        <textarea name="description" required></textarea><br>
+        <button type="submit">Add Bike</button>
+    </form>
+</body>
+</html>
+

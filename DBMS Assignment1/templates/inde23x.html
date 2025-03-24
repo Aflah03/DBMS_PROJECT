@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Rental</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+
+</head>
+<body>
+    <h1>Available Bikes</h1>
+    {% for bike in bikes %}
+        <p>{{ bike[1] }} - ${{ bike[2] }}</p>
+        <a href="/book/{{ bike[0] }}">Book Now</a>
+    {% endfor %}
+</body>
+</html>

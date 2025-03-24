@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Bookings</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <h1>Your Bookings</h1>
+    <table border="1">
+        <tr>
+            <th>Bike Model</th>
+            <th>Status</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking[0] }}</td>
+            <td>{{ booking[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
